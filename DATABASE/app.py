@@ -1,6 +1,6 @@
 import sqlite3
 
-db = sqlite3.connect("SQL_Practice_Assesment_Task7.db")
+db = sqlite3.connect("Cards.db")
 cursor = db.cursor()
 sql = "SELECT * from Card;"
 cursor.execute(sql)
