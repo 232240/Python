@@ -1,4 +1,4 @@
-#docstring- Aayush Chand- Cards database application
+#docstring - Aayush Chand - Cards database application
 #import
 import sqlite3
 
