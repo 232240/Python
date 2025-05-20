@@ -6,6 +6,30 @@ import sqlite3
 DATABASE = "CR_Arenas.db"
 
 #funtions
+def add_arena():
+    Name = input("Arena name: ")
+    Trophies = int(input("Trophies required: "))
+    Number_of_rewards = int(input("Number of rewards: "))
+    Reward_types = (input("Reward types: "))
+
+    db = sqlite3.connect(DATABASE)
+    cursor = db.cursor()
+    sql = "INSERT INTO Arenas (Name, Trophies_required, Number_of_rewards, Reward_types) VALUES (?, ?, ?, ?);"
+    cursor.execute(sql, (Name, Trophies, Number_of_rewards, Reward_types))
+    db.commit()
+    db.close()
+def delete_arena():
+    name = input("Enter the name of the arena to delete: ")
+    db = sqlite3.connect(DATABASE)
+    cursor = db.cursor()
+    sql = "DELETE FROM Arenas WHERE Name = ?"
+    cursor.execute(sql, (name,))
+    db.commit()
+    if cursor.rowcount > 0:
+        print("Arena deleted")
+    else:
+        print("Arena not found")
+    db.close()
 def print_all_arenas():
     '''print all the arenas nicely'''
     db = sqlite3.connect(DATABASE)
@@ -66,7 +90,9 @@ while True:
     2. Print all arenas by trophies
     3. Print all arenas by number of rewards
     4. Print all arenas by alphabetical order
-    5. Exit
+    5. Add an arena to the table
+    6. Delete an arena from the table
+    7. Exit
     """)
     if user_input == "1":
        print_all_arenas()
@@ -77,6 +103,10 @@ while True:
     elif user_input == "4":
        print_all_arenas_by_alphabet()
     elif user_input == "5":
+       add_arena()
+    elif user_input == "6":
+       delete_arena()
+    elif user_input == "7":
         break
     else:
         print("That was not an option\n")
