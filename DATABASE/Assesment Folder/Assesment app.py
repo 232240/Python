@@ -41,7 +41,7 @@ def print_all_arenas():
     cursor.execute(sql)
     results = cursor.fetchall()
     #loop through all the results
-    print(f"{Fore.LIGHTGREEN_EX}    Name              {Fore.LIGHTYELLOW_EX}Trophies Required    {Fore.LIGHTRED_EX}Number of Rewards          {Fore.LIGHTCYAN_EX}Reward Types{Style.RESET_ALL}\n")
+    print(f"\n{Fore.LIGHTGREEN_EX}    Name              {Fore.LIGHTYELLOW_EX}Trophies Required    {Fore.LIGHTRED_EX}Number of Rewards          {Fore.LIGHTCYAN_EX}Reward Types{Style.RESET_ALL}\n")
     for arena in results:
         print(f"{Fore.LIGHTGREEN_EX}{arena[1]:<30}{Fore.LIGHTYELLOW_EX}{arena[2]:<20}{Fore.LIGHTRED_EX}{arena[3]:<20}{Fore.LIGHTCYAN_EX}{arena[4]:<30}{Style.RESET_ALL}")
     #loop finish here
@@ -54,7 +54,7 @@ def print_all_arenas_by_trophies():
     cursor.execute(sql)
     results = cursor.fetchall()
     #loop through all the results
-    print(f"{Fore.LIGHTGREEN_EX}    Name              {Fore.LIGHTYELLOW_EX}Trophies Required    {Fore.LIGHTRED_EX}Number of Rewards          {Fore.LIGHTCYAN_EX}Reward Types{Style.RESET_ALL}\n")
+    print(f"\n{Fore.LIGHTGREEN_EX}    Name              {Fore.LIGHTYELLOW_EX}Trophies Required    {Fore.LIGHTRED_EX}Number of Rewards          {Fore.LIGHTCYAN_EX}Reward Types{Style.RESET_ALL}\n")
     for arena in results:
         print(f"{Fore.LIGHTGREEN_EX}{arena[1]:<30}{Fore.LIGHTYELLOW_EX}{arena[2]:<20}{Fore.LIGHTRED_EX}{arena[3]:<20}{Fore.LIGHTCYAN_EX}{arena[4]:<30}{Style.RESET_ALL}")
     #loop finish here
@@ -67,7 +67,7 @@ def print_all_arenas_by_number_of_rewards():
     cursor.execute(sql)
     results = cursor.fetchall()
     #loop through all the results
-    print(f"{Fore.LIGHTGREEN_EX}    Name              {Fore.LIGHTYELLOW_EX}Trophies Required    {Fore.LIGHTRED_EX}Number of Rewards          {Fore.LIGHTCYAN_EX}Reward Types{Style.RESET_ALL}\n")
+    print(f"\n{Fore.LIGHTGREEN_EX}    Name              {Fore.LIGHTYELLOW_EX}Trophies Required    {Fore.LIGHTRED_EX}Number of Rewards          {Fore.LIGHTCYAN_EX}Reward Types{Style.RESET_ALL}\n")
     for arena in results:
         print(f"{Fore.LIGHTGREEN_EX}{arena[1]:<30}{Fore.LIGHTYELLOW_EX}{arena[2]:<20}{Fore.LIGHTRED_EX}{arena[3]:<20}{Fore.LIGHTCYAN_EX}{arena[4]:<30}{Style.RESET_ALL}")
     #loop finish here
@@ -80,22 +80,23 @@ def print_all_arenas_by_alphabet():
     cursor.execute(sql)
     results = cursor.fetchall()
     #loop through all the results
-    print(f"{Fore.LIGHTGREEN_EX}    Name              {Fore.LIGHTYELLOW_EX}Trophies Required    {Fore.LIGHTRED_EX}Number of Rewards          {Fore.LIGHTCYAN_EX}Reward Types{Style.RESET_ALL}\n")
+    print(f"\n{Fore.LIGHTGREEN_EX}    Name              {Fore.LIGHTYELLOW_EX}Trophies Required    {Fore.LIGHTRED_EX}Number of Rewards          {Fore.LIGHTCYAN_EX}Reward Types{Style.RESET_ALL}\n")
     for arena in results:
         print(f"{Fore.LIGHTGREEN_EX}{arena[1]:<30}{Fore.LIGHTYELLOW_EX}{arena[2]:<20}{Fore.LIGHTRED_EX}{arena[3]:<20}{Fore.LIGHTCYAN_EX}{arena[4]:<30}{Style.RESET_ALL}")
     #loop finish here
     db.close()
 #main code
 while True:
-    user_input = input("""
-    What would you like to do?
-    1. Print all arenas
+    user_input = input(f"""
+    {Fore.MAGENTA}What would you like to do?{Style.RESET_ALL}
+    {Fore.LIGHTGREEN_EX}1. Print all arenas
     2. Print all arenas by trophies
     3. Print all arenas by number of rewards
     4. Print all arenas by alphabetical order
-    5. Add an arena to the table
-    6. Delete an arena from the table
-    7. Exit
+    5. Add an arena to the table{Style.RESET_ALL}
+    {Fore.LIGHTRED_EX}6. Delete an arena from the table
+    7. Exit{Style.RESET_ALL}
+    
     """)
     if user_input == "1":
        print_all_arenas()
