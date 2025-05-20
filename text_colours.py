@@ -9,3 +9,4 @@ class TextColours:
     underline = "\u001b[4m"
     bold = "\u001b[1m"
     inverse = "\u001b[7m"
+    end = "\u00b1[0m"

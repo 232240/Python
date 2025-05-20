@@ -1,7 +1,14 @@
 #docstring - Aayush Chand - Arenas database application
 #import
 import sqlite3
+#import colours
+from colorama import Fore, Style, init
+init()
 
+print(f"{Fore.GREEN}This will be green text!{Style.RESET_ALL}")
+
+from text_colours import TextColours
+t = TextColours()
 #constants and variables
 DATABASE = "CR_Arenas.db"
 
