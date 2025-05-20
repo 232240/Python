@@ -2,22 +2,18 @@
 #import
 import sqlite3
 #import colours
-from colorama import Fore, Style, init
+from colorama import init, Fore, Style
+# Initialize Colorama
 init()
-
-print(f"{Fore.GREEN}This will be green text!{Style.RESET_ALL}")
-
-from text_colours import TextColours
-t = TextColours()
 #constants and variables
 DATABASE = "CR_Arenas.db"
 
 #funtions
 def add_arena():
-    Name = input("Arena name: ")
-    Trophies = int(input("Trophies required: "))
-    Number_of_rewards = int(input("Number of rewards: "))
-    Reward_types = (input("Reward types: "))
+    Name = input(f"{Fore.GREEN}Arena name: {Style.RESET_ALL}")
+    Trophies = int(input(f"{Fore.YELLOW}Trophies required: {Style.RESET_ALL}"))
+    Number_of_rewards = int(input(f"{Fore.LIGHTGREEN_EX}Number of rewards: {Style.RESET_ALL}"))
+    Reward_types = (input(f"{Fore.CYAN}Reward types: {Style.RESET_ALL}"))
 
     db = sqlite3.connect(DATABASE)
     cursor = db.cursor()
@@ -26,16 +22,16 @@ def add_arena():
     db.commit()
     db.close()
 def delete_arena():
-    name = input("Enter the name of the arena to delete: ")
+    name = input(f"{Fore.RED} Enter the name of the arena to delete: {Style.RESET_ALL}")
     db = sqlite3.connect(DATABASE)
     cursor = db.cursor()
     sql = "DELETE FROM Arenas WHERE Name = ?"
     cursor.execute(sql, (name,))
     db.commit()
     if cursor.rowcount > 0:
-        print("Arena deleted")
+        print(f"{Fore.RED}Arena deleted{Style.RESET_ALL}")
     else:
-        print("Arena not found")
+        print(f"{Fore.LIGHTBLUE_EX}Arena not found{Style.RESET_ALL}")
     db.close()
 def print_all_arenas():
     '''print all the arenas nicely'''
@@ -45,7 +41,7 @@ def print_all_arenas():
     cursor.execute(sql)
     results = cursor.fetchall()
     #loop through all the results
-    print("    Name              Trophies Required    Number of Rewards          Reward Types\n")
+    print(f"{Fore.GREEN}    Name              Trophies Required    Number of Rewards          Reward Types{Style.RESET_ALL}\n")
     for arena in results:
         print(f"{arena[1]:<30}{arena[2]:<20}{arena[3]:<20}{arena[4]:<30}")
     #loop finish here
@@ -58,7 +54,7 @@ def print_all_arenas_by_trophies():
     cursor.execute(sql)
     results = cursor.fetchall()
     #loop through all the results
-    print("    Name              Trophies Required    Number of Rewards          Reward Types\n")
+    print(f"{Fore.GREEN}    Name              Trophies Required    Number of Rewards          Reward Types{Style.RESET_ALL}\n")
     for arena in results:
         print(f"{arena[1]:<30}{arena[2]:<20}{arena[3]:<20}{arena[4]:<30}")
     #loop finish here
@@ -71,7 +67,7 @@ def print_all_arenas_by_number_of_rewards():
     cursor.execute(sql)
     results = cursor.fetchall()
     #loop through all the results
-    print("    Name              Trophies Required    Number of Rewards          Reward Types\n")
+    print(f"{Fore.GREEN}    Name              Trophies Required    Number of Rewards          Reward Types{Style.RESET_ALL}\n")
     for arena in results:
         print(f"{arena[1]:<30}{arena[2]:<20}{arena[3]:<20}{arena[4]:<30}")
     #loop finish here
@@ -84,7 +80,7 @@ def print_all_arenas_by_alphabet():
     cursor.execute(sql)
     results = cursor.fetchall()
     #loop through all the results
-    print("    Name              Trophies Required    Number of Rewards          Reward Types\n")
+    print(f"{Fore.GREEN}    Name              Trophies Required    Number of Rewards          Reward Types{Style.RESET_ALL}\n")
     for arena in results:
         print(f"{arena[1]:<30}{arena[2]:<20}{arena[3]:<20}{arena[4]:<30}")
     #loop finish here
