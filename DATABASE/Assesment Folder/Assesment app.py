@@ -92,11 +92,10 @@ while True:
     {Fore.LIGHTGREEN_EX}1. Print all arenas
     2. Print all arenas by trophies
     3. Print all arenas by number of rewards
-    4. Print all arenas by alphabetical order
-    5. Add an arena to the table{Style.RESET_ALL}
+    4. Print all arenas in alphabetical order{Style.RESET_ALL}
+    {Fore.LIGHTBLUE_EX}5. Add an arena to the table{Style.RESET_ALL}
     {Fore.LIGHTRED_EX}6. Delete an arena from the table
     7. Exit{Style.RESET_ALL}
-    
     """)
     if user_input == "1":
        print_all_arenas()
