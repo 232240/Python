@@ -41,9 +41,9 @@ def print_all_arenas():
     cursor.execute(sql)
     results = cursor.fetchall()
     #loop through all the results
-    print(f"{Fore.GREEN}    Name              Trophies Required    Number of Rewards          Reward Types{Style.RESET_ALL}\n")
+    print(f"{Fore.LIGHTGREEN_EX}    Name              {Fore.LIGHTYELLOW_EX}Trophies Required    {Fore.LIGHTRED_EX}Number of Rewards          {Fore.LIGHTCYAN_EX}Reward Types{Style.RESET_ALL}\n")
     for arena in results:
-        print(f"{arena[1]:<30}{arena[2]:<20}{arena[3]:<20}{arena[4]:<30}")
+        print(f"{Fore.LIGHTGREEN_EX}{arena[1]:<30}{Fore.LIGHTYELLOW_EX}{arena[2]:<20}{Fore.LIGHTRED_EX}{arena[3]:<20}{Fore.LIGHTCYAN_EX}{arena[4]:<30}{Style.RESET_ALL}")
     #loop finish here
     db.close()
 def print_all_arenas_by_trophies():
@@ -54,9 +54,9 @@ def print_all_arenas_by_trophies():
     cursor.execute(sql)
     results = cursor.fetchall()
     #loop through all the results
-    print(f"{Fore.GREEN}    Name              Trophies Required    Number of Rewards          Reward Types{Style.RESET_ALL}\n")
+    print(f"{Fore.LIGHTGREEN_EX}    Name              {Fore.LIGHTYELLOW_EX}Trophies Required    {Fore.LIGHTRED_EX}Number of Rewards          {Fore.LIGHTCYAN_EX}Reward Types{Style.RESET_ALL}\n")
     for arena in results:
-        print(f"{arena[1]:<30}{arena[2]:<20}{arena[3]:<20}{arena[4]:<30}")
+        print(f"{Fore.LIGHTGREEN_EX}{arena[1]:<30}{Fore.LIGHTYELLOW_EX}{arena[2]:<20}{Fore.LIGHTRED_EX}{arena[3]:<20}{Fore.LIGHTCYAN_EX}{arena[4]:<30}{Style.RESET_ALL}")
     #loop finish here
     db.close()
 def print_all_arenas_by_number_of_rewards():
@@ -67,9 +67,9 @@ def print_all_arenas_by_number_of_rewards():
     cursor.execute(sql)
     results = cursor.fetchall()
     #loop through all the results
-    print(f"{Fore.GREEN}    Name              Trophies Required    Number of Rewards          Reward Types{Style.RESET_ALL}\n")
+    print(f"{Fore.LIGHTGREEN_EX}    Name              {Fore.LIGHTYELLOW_EX}Trophies Required    {Fore.LIGHTRED_EX}Number of Rewards          {Fore.LIGHTCYAN_EX}Reward Types{Style.RESET_ALL}\n")
     for arena in results:
-        print(f"{arena[1]:<30}{arena[2]:<20}{arena[3]:<20}{arena[4]:<30}")
+        print(f"{Fore.LIGHTGREEN_EX}{arena[1]:<30}{Fore.LIGHTYELLOW_EX}{arena[2]:<20}{Fore.LIGHTRED_EX}{arena[3]:<20}{Fore.LIGHTCYAN_EX}{arena[4]:<30}{Style.RESET_ALL}")
     #loop finish here
     db.close()
 def print_all_arenas_by_alphabet():
@@ -80,9 +80,9 @@ def print_all_arenas_by_alphabet():
     cursor.execute(sql)
     results = cursor.fetchall()
     #loop through all the results
-    print(f"{Fore.GREEN}    Name              Trophies Required    Number of Rewards          Reward Types{Style.RESET_ALL}\n")
+    print(f"{Fore.LIGHTGREEN_EX}    Name              {Fore.LIGHTYELLOW_EX}Trophies Required    {Fore.LIGHTRED_EX}Number of Rewards          {Fore.LIGHTCYAN_EX}Reward Types{Style.RESET_ALL}\n")
     for arena in results:
-        print(f"{arena[1]:<30}{arena[2]:<20}{arena[3]:<20}{arena[4]:<30}")
+        print(f"{Fore.LIGHTGREEN_EX}{arena[1]:<30}{Fore.LIGHTYELLOW_EX}{arena[2]:<20}{Fore.LIGHTRED_EX}{arena[3]:<20}{Fore.LIGHTCYAN_EX}{arena[4]:<30}{Style.RESET_ALL}")
     #loop finish here
     db.close()
 #main code
