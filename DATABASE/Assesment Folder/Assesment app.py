@@ -9,6 +9,16 @@ init()
 DATABASE = "CR_Arenas.db"
 
 #funtions
+def compare_arenas():
+    cursor = db.cursor()
+    a1 = input("Enter first arena name: ")
+    a2 = input("Enter second arena name: ")
+    cursor.execute("SELECT Name, Trophies_Required, Num_Rewards FROM Arenas WHERE Name IN (?, ?)", (a1, a2))
+    results = cursor.fetchall()
+    print(f"{Fore.GREEN}Arena Comparison:\n")
+    for arena in results:
+        print(f"{Fore.LIGHTGREEN_EX}{arena[1]:<30}{Fore.LIGHTYELLOW_EX}{arena[2]:<20}{Fore.LIGHTRED_EX}{arena[3]:<20}{Fore.LIGHTCYAN_EX}{arena[4]:<30}{Style.RESET_ALL}")
+    db.close()
 def add_arena():
     Name = input(f"{Fore.GREEN}Arena name: {Style.RESET_ALL}")
     Trophies = int(input(f"{Fore.YELLOW}Trophies required: {Style.RESET_ALL}"))
@@ -95,7 +105,8 @@ while True:
     4. Print all arenas in alphabetical order{Style.RESET_ALL}
     {Fore.LIGHTBLUE_EX}5. Add an arena to the table{Style.RESET_ALL}
     {Fore.LIGHTRED_EX}6. Delete an arena from the table
-    7. Exit{Style.RESET_ALL}
+    {Fore.BLUE}7. Compare two arenas
+    8. Exit{Style.RESET_ALL}
     """)
     if user_input == "1":
        print_all_arenas()
@@ -110,6 +121,8 @@ while True:
     elif user_input == "6":
        delete_arena()
     elif user_input == "7":
+        compare_arenas()
+    elif user_input == "8":
         break
     else:
         print("That was not an option\n")
