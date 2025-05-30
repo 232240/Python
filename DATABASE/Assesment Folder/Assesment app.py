@@ -10,17 +10,20 @@ DATABASE = "CR_Arenas.db"
 
 #funtions
 def find_arena_by_trophies():
-    '''search for the qarena the user is in from their input trophies amount'''
+    '''search for the arena the user is in from their input zmount of trophies'''
     db = sqlite3.connect(DATABASE)
     cursor = db.cursor()
     try:
         trophies = int(input("Enter your current trophy count: "))
+        if trophies < 0 or trophies > 9000:
+            print("Please enter a valid number between 0 and 9000.")
+            return
         sql = "SELECT * FROM Arenas WHERE Trophies_Required <= ? ORDER BY Trophies_Required DESC LIMIT 1;"
         cursor.execute(sql, (trophies,))
-        results = cursor.fetchone()
-        for arena in results:
+        arena = cursor.fetchone()
+        if arena:
             print(f"{Fore.LIGHTGREEN_EX}You're currently in: {arena[1]}{Style.RESET_ALL}")
-        if trophies:
+        else:
             print("No matching arena found.")
     except ValueError:
         print("Please enter a valid number.")
